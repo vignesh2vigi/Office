@@ -1,0 +1,83 @@
+<div >
+<table ng-table ="usersTable" class="table table-striped" >
+
+<thead>
+<tr>
+
+<th>sno</th>
+<th>Title</th>
+<th>Content</th>
+<th>PostBy</th>
+<th>Time</th>
+<th>Action</th>
+</tr>
+</thead>
+<tbody >
+<tr ng-repeat="blog in wait | filter:searchTxt" >
+
+<td>{{blog.blogid}}</td>
+<td>{{blog.title}}</td>
+<td>{{blog.content}}</td>
+<td>{{blog.postby}}</td>
+<td>{{blog.date}}</td>
+<td>
+<div><a  ng-click="blogapp(blog)">Approve</a></div>
+<div><a  ng-click="blogrej(blog)">Reject</a></div>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<button href="#!addblog" data-toggle="modal" data-target="#myModal" class="btn btn-primary" data-method="get">Add Blog</button>
+
+
+<table ng-table ="usersTable" class="table table-striped">
+
+<thead>
+<tr>
+
+<th>sno</th>
+<th>Title</th>
+<th>Content</th>
+<th>PostBy</th>
+<th>Time</th>
+
+</tr>
+</thead>
+<tbody >
+<tr ng-repeat="blog in blogdetails | filter:searchTxt" >
+
+<td>{{blog.blogid}}</td>
+<td>{{blog.title}}</td>
+<td>{{blog.content}}</td>
+<td>{{blog.postby}}</td>
+<td>{{blog.date}}</td>
+
+</tr>
+</tbody>
+</table>
+
+
+ <div class="modal fade" id="myModal" role="dialog">
+    <div class="modal-dialog">
+    
+      <!-- Modal content-->
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <h4 class="modal-title">Enter Blog</h4>
+        </div>
+        <div class="modal-body">
+         <!-- <input type="hidden"  ng-model="currentDealer.admin_id" value="{{currentDealer.admin_id}}" disabled> -->
+   <input type="text"  ng-model="blog.title" placeholder="Title"> 
+   <br>
+   <br/>
+    <textarea ng-show="blog.title" rows="5" cols="20" ng-model="blog.content" title="Enter Blog Content" class="form-control" placeholder="Content" ></textarea>
+        </div>
+        <div class="modal-footer" ng-show="blog.content">
+          <button type="button"  class="btn btn-success" data-dismiss="modal" id="some11" ng-click="addblog()">Add</button>
+        </div>
+      </div>
+      
+    </div>
+  </div>
