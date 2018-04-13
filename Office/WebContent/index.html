@@ -155,7 +155,7 @@ div.footer.navbar-fixed-bottom span {
       <ul class="nav navbar-nav">
          <li><a href="#!home"><span class="glyphicon glyphicon-th" aria-hidden="true"></span>Home</a></li>
          <li>
-          <a href="#!register" role="button">REGISTER<span></span></a>
+          <a href="#!register" ng-hide="currentUser.name" role="button">REGISTER<span></span></a>
           <!-- <ul class="dropdown-menu">
             <li><a href=""><span class="glyphicon glyphicon-th-list" aria-hidden="true"></span> Overview</a></li>
             <li><a href="#"><span class="glyphicon glyphicon-plus-sign" aria-hidden="true"></span> New Task</a></li>
@@ -201,7 +201,7 @@ div.footer.navbar-fixed-bottom span {
       </li> -->
       </ul>
       <ul class="nav navbar-nav navbar-right">
-       <li><a href="#!uploadprofilepic" ng-show="currentUser.name"><img src="http://localhost:8080/Office/servlet/getimage/{{currentUser.name}}" class="img-circle" height="30px" width="30px"alt="Upload" ></a></li>
+       <li><a href="#!uploadprofilepic" ng-show="currentUser.name"><img src="http://localhost:8080/Office/servlet/getimage/{{currentUser.name}}" class="img-circle" height="50px" width="50px"alt="Upload" ></a></li>
       <li><a href="#!friends" ng-show="currentUser.name">Friends</a></li> 
         <!-- <li class="dropdown">
           <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"ng-show="currentUser.username"><span class="glyphicon glyphicon-link" aria-hidden="true"></span>Friend<span class="caret"></span></a>

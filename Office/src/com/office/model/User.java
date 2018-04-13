@@ -16,6 +16,13 @@ public class User {
 	private String password;
 	private boolean status;
 	private String message;
+	private String role;
+	public String getRole() {
+		return role;
+	}
+	public void setRole(String role) {
+		this.role = role;
+	}
 	private byte[] image;
 	
 	public byte[] getImage() {

@@ -60,14 +60,14 @@ public class UserDaoImpl implements UserDao {
 		User bank = new User();
 		List<User> bankModelObjArray = new ArrayList<User>(); 
 		
-		String query = "SELECT name,password FROM register WHERE name='"+user.getName()+"' AND password='"+user.getPassword()+"' "; 
+		String query = "SELECT name,password,role FROM register WHERE name='"+user.getName()+"' AND password='"+user.getPassword()+"' "; 
 		System.out.println("query"+query);
 		System.out.println(""+query);
 		bankModelObjArray = getJdbcTemplate().query(query, new BeanPropertyRowMapper(User.class)); 
 		if (bankModelObjArray.size() > 0) {
 			bank.setStatus(true);
 		
-			
+			bank.setRole(bankModelObjArray.get(0).getRole());
 			bank.setName(bankModelObjArray.get(0).getName());
 			bank.setPassword(bankModelObjArray.get(0).getPassword());
 			} else { 
@@ -79,7 +79,6 @@ public class UserDaoImpl implements UserDao {
 
 	@Override
 	public boolean valid(String name) {
-		// TODO Auto-generated method stub
 		// TODO Auto-generated method stub
 				System.out.println("adminId======================"+name);
 				User bank = new User();

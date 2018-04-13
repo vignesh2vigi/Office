@@ -1,4 +1,4 @@
-<div >
+<div ng-show="currentUser.role=='ADMIN'">
 <table ng-table ="usersTable" class="table table-striped" >
 
 <thead>
@@ -41,7 +41,7 @@
 <th>Content</th>
 <th>PostBy</th>
 <th>Time</th>
-
+<th ng-show="currentUser.role=='ADMIN'">Action</th>
 </tr>
 </thead>
 <tbody >
@@ -52,7 +52,7 @@
 <td>{{blog.content}}</td>
 <td>{{blog.postby}}</td>
 <td>{{blog.date}}</td>
-
+<td ng-show="currentUser.role=='ADMIN'"><div><a  ng-click="blogrej(blog)">Reject</a></div></td>
 </tr>
 </tbody>
 </table>

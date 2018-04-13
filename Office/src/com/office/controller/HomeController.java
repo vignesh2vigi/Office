@@ -55,6 +55,7 @@ public ResponseEntity<?> logout(HttpSession session){
 	if(admin_username==null){
 		return new ResponseEntity<Error>(HttpStatus.UNAUTHORIZED);
 	}
+
 	session.removeAttribute("name");
 	session.invalidate();
 	return new ResponseEntity<User>(HttpStatus.OK);
