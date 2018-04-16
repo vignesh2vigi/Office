@@ -43,11 +43,12 @@
 	</bean>
 
 	<bean id="userService" class="com.office.service.UserServiceImpl"></bean>
-
-	<bean id="userDao" class="com.office.dao.UserDaoImpl"></bean>
-
 <bean id="blogService" class="com.office.service.BlogServiceImpl"></bean>
+	<bean id="msgService" class="com.office.service.MsgServiceImpl"></bean>
 
+
+<bean id="userDao" class="com.office.dao.UserDaoImpl"></bean>
 	<bean id="blogDao" class="com.office.dao.BlogDaoImpl"></bean>
+<bean id="msgDao" class="com.office.dao.MsgDaoImpl"></bean>
 
 </beans>

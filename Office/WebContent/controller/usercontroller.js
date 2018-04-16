@@ -39,4 +39,20 @@ app.controller('UserController',function($scope,UserService,$location,$rootScope
 	})
 	}
 	
+	function userlist() {
+		UserService.userlist().then(function(response) {
+			console.log(response.data)
+			console.log(response.status)
+			 
+			$scope.friends = response.data
+		
+		}, function(response) {
+			console.log(response.status)
+			if(response.status==401){
+				console.log("login must")
+				
+			}
+		})
+	}
+	userlist()
 		})

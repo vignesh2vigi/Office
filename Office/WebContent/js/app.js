@@ -28,6 +28,14 @@ app.config(function($routeProvider) {
         .when('/uploadprofilepic', {
 		templateUrl : 'view/profilepicture.html'
 	})
+	.when('/friends', {
+		templateUrl : 'view/friends.html',
+		controller:'UserController'
+	})
+	.when('/message/:sno', {
+		templateUrl : 'view/message.html',
+		controller:'MsgController'
+	})
         .when("/about", {
         templateUrl : 'view/about.html'
         

@@ -1,5 +1,7 @@
 package com.office.dao;
 
+import java.util.List;
+
 import com.office.model.User;
 
 public interface UserDao {
@@ -10,4 +12,6 @@ public interface UserDao {
    public boolean validpass(String password);
    public User uploadProfilePic (User profilePicture);
    public User getProfilePic(String name);
+   public List<User>user();
+   public User friend(int sno);
 }

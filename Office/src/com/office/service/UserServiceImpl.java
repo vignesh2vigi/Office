@@ -1,5 +1,7 @@
 package com.office.service;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 
 import com.office.dao.UserDao;
@@ -44,6 +46,18 @@ public class UserServiceImpl implements UserService {
 	public User getProfilePic(String name) {
 		// TODO Auto-generated method stub
 		return userDao.getProfilePic(name);
+	}
+
+	@Override
+	public List<User> user() {
+		// TODO Auto-generated method stub
+		return userDao.user();
+	}
+
+	@Override
+	public User friend(int sno) {
+		// TODO Auto-generated method stub
+		return userDao.friend(sno);
 	}
 
 }

@@ -1,0 +1,32 @@
+<form>
+    
+    <div class="col-xs-12 col-sm-3">
+										<img
+											src="http://localhost:8080/Office/servlet/getimage/{{msg.name}}"
+											class="img-responsive img-circle" />
+									</div> 
+									 <p>
+       <label>Sno:</label>
+        <input type="text" id="name" name="sno" ng-model="msg.sno" disabled/>
+    </p>
+     <p>
+       <label>Name:</label>
+        <input type="text" id="name" name="name" ng-model="msg.name" disabled/>
+    </p>
+    <p>
+       <label>Email:</label>
+        <input type="text" id="email" name="sno" value="{{msg.email}}" disabled/>
+    </p>
+    <p>
+       <label>Mobile:</label>
+        <input type="number" id="mobile" name="sno" value="{{msg.mobile}}" disabled/>
+    </p> 
+    <p>
+        <label for="message">Message:</label>
+        <textarea id="message" placeholder="Message" name="message" rows="6" cols="30" ng-model="msg.msg"></textarea>
+    </p>
+    <p>
+    <button ng-show="msg.msg" class="btn btn-primary" ng-click="send()">Send</button>
+        
+    </p>
+</form>
