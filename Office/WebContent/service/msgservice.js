@@ -14,5 +14,9 @@ app.factory('MsgService',function($http){
 	msgService.addmsg=function(msg){
 		return	$http.post(BASE_URL + "/servlet/addmsg2",msg)
 	}
+	
+	msgService.getmessage=function(){
+		return	$http.post(BASE_URL + "/servlet/getmsg")
+	}
 		return msgService;
 })

@@ -60,4 +60,12 @@ public class UserServiceImpl implements UserService {
 		return userDao.friend(sno);
 	}
 
+	@Override
+	public User details(String name) {
+		// TODO Auto-generated method stub
+		return userDao.details(name);
+	}
+
+	
+
 }

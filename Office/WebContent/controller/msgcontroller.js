@@ -38,4 +38,22 @@ MsgService.friend(sno).then(function(response){
 	})
 		}
 	
+	
+
+		MsgService.getmessage().then(function(response) {
+			console.log(response.data)
+			console.log(response.status)
+			 
+			$scope.msg1 = response.data
+			console.log("list"+$scope.msg1.msg)
+		}, function(response) {
+			console.log(response.status)
+			if(response.status==401){
+	    	
+				$location.path('/login')
+			}
+		})
+	
+	
+	
 		})

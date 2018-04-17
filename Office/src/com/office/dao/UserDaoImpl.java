@@ -218,5 +218,31 @@ System.out.println("Image Insert=========="+insertDealerReg_query);
 		return bank;
 	}
 
+	@Override
+	public User details(String name) {
+		// TODO Auto-generated method stub
+		User bank = new User();
+		List<User> bankModelObjArray = new ArrayList<User>(); 
+		
+		String query = "SELECT * from register WHERE name='"+name+"'"; 
+		System.out.println("query"+query);
+		System.out.println(""+query);
+		bankModelObjArray = getJdbcTemplate().query(query, new BeanPropertyRowMapper(User.class)); 
+		if (bankModelObjArray.size() > 0) {
+			bank.setStatus(true);
+			bank.setSno(bankModelObjArray.get(0).getSno());
+			bank.setName(bankModelObjArray.get(0).getName());
+			bank.setEmail(bankModelObjArray.get(0).getEmail());
+			bank.setMobile(bankModelObjArray.get(0).getMobile());
+			bank.setImage(bankModelObjArray.get(0).getImage());
+			bank.setPassword(bankModelObjArray.get(0).getPassword());
+			
+			} else { 
+				/*System.out.println("pass");*/
+				bank.setStatus(false);
+				}
+		return bank;
+	}
+
 	
 }

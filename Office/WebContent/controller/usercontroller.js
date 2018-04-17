@@ -54,5 +54,21 @@ app.controller('UserController',function($scope,UserService,$location,$rootScope
 			}
 		})
 	}
+	
+	if($rootScope.currentUser!=undefined){
+		UserService.details().then(function(response){
+			$scope.user=response.data
+		},function(response){
+			console.log(response.status)
+			if(response.status==401){
+				delete $rootScope.currentUser;
+				$cookieStore.remove('currentUser')
+				$location.path('/login')
+
+			}
+				
+			})
+		}
+	
 	userlist()
 		})

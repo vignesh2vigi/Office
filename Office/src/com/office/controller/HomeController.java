@@ -114,4 +114,14 @@ public ResponseEntity<?> friend(@PathVariable int sno,HttpSession session) {
 	
 	return new ResponseEntity<User>(deal,HttpStatus.OK);
 }
+@RequestMapping(value="/details",method=RequestMethod.GET,produces=MediaType.APPLICATION_JSON_VALUE)
+public ResponseEntity<?> details(HttpSession session){
+   String name=(String)session.getAttribute("name");
+	 if(name==null){	
+		return new ResponseEntity<Error>(HttpStatus.UNAUTHORIZED);
+	}
+	 User list=userService.details(name);
+	 
+	 return new ResponseEntity<User>(list,HttpStatus.OK);
+}
 }

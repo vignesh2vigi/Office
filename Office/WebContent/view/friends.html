@@ -58,7 +58,8 @@ ul.c-controls li a:hover {
                     <li class="list-group-item">
                         <div class="col-xs-12 col-sm-3" >
                            
- 							<a href="#!message/{{friend.sno}}"> <img src="http://localhost:8080/Office/servlet/getimage/{{friend.name}}"  class="img-responsive img-circle" /><b>{{friend.name}}</b></a> 
+ 							<a href="#!message/{{friend.sno}}"> <img ng-if="currentUser.name!=friend.name" src="http://localhost:8080/Office/servlet/getimage/{{friend.name}}"  class="img-responsive img-circle" /><span class="name" ng-if="currentUser.name!=friend.name">{{friend.name}}</span></b>
+ 							
                                                             
                         </div>
                        

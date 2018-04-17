@@ -1,5 +1,8 @@
 package com.office.model;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import javax.xml.bind.annotation.XmlRootElement;
 
 import com.fasterxml.jackson.annotation.JsonInclude;
@@ -15,7 +18,20 @@ public class Msg {
 	private String msg;
 	private String date;
 	private boolean status;
-
+    private int msg_id;
+ private String user_from;
+	public String getUser_from() {
+	return user_from;
+}
+public void setUser_from(String user_from) {
+	this.user_from = user_from;
+}
+	public int getMsg_id() {
+		return msg_id;
+	}
+	public void setMsg_id(int msg_id) {
+		this.msg_id = msg_id;
+	}
 	public boolean isStatus() {
 		return status;
 	}

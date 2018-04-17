@@ -1,0 +1,22 @@
+<table ng-table ="usersTable" class="table table-striped" >
+
+<thead>
+<tr>
+
+<th>From</th>
+<th>Message</th>
+<th>Time</th>
+
+</tr>
+</thead>
+<tbody >
+<tr ng-repeat="ms in msg1" >
+<td>{{ms.user_from}}</td>
+<td>{{ms.msg}}</td>
+<td>{{ms.date}}</td>
+
+
+
+</tr>
+</tbody>
+</table>

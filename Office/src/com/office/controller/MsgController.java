@@ -1,5 +1,7 @@
 package com.office.controller;
 
+import java.util.List;
+
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -30,5 +32,18 @@ public class MsgController {
 		 msgService.addmsg(msg);
 		 
 		return new ResponseEntity<Msg>(dealerRegLoginObj,HttpStatus.OK);
+	}
+	
+	@RequestMapping(value = "/getmsg", method = RequestMethod.POST,produces = MediaType.APPLICATION_JSON_VALUE)
+ 	public ResponseEntity<List<Msg>> getmsg(HttpSession session) {
+		System.out.println("user register");
+		Msg msg = new Msg();
+		System.out.println("check");
+	String from=(String)session.getAttribute("name");
+		msg.setFrom(from);
+		
+		List<Msg> msg1 = msgService.getmsg(msg);
+		 
+		return new ResponseEntity<List<Msg>>(msg1,HttpStatus.OK);
 	}
 }

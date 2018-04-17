@@ -32,6 +32,14 @@ app.config(function($routeProvider) {
 		templateUrl : 'view/friends.html',
 		controller:'UserController'
 	})
+	.when('/editprofile', {
+		templateUrl : 'view/edit.html',
+		controller:'UserController'
+	})
+	.when('/getmessage', {
+		templateUrl : 'view/getmessage.html',
+		controller:'MsgController'
+	})
 	.when('/message/:sno', {
 		templateUrl : 'view/message.html',
 		controller:'MsgController'
