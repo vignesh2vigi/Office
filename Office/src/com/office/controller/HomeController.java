@@ -29,8 +29,12 @@ public class HomeController {
 	private UserService userService;
 	
 @RequestMapping(value = "/Registration", method = RequestMethod.POST,produces = MediaType.APPLICATION_JSON_VALUE)
- 	public ResponseEntity<User> dealerRegistration(@RequestBody User user) {
+ 	public ResponseEntity<?> dealerRegistration(@RequestBody User user) {
 		System.out.println("user register");
+		if(userService.valid(user.getName())){	
+			Error error=new Error(1,"Already name exist");
+			return new ResponseEntity<Error>(error,HttpStatus.NOT_ACCEPTABLE);
+		}
 		User dealerRegLoginObj = userService.register(user);
 		return new ResponseEntity<User>(dealerRegLoginObj,HttpStatus.OK);
 	}
@@ -124,4 +128,11 @@ public ResponseEntity<?> details(HttpSession session){
 	 
 	 return new ResponseEntity<User>(list,HttpStatus.OK);
 }
+@RequestMapping(value = "/update", method = RequestMethod.POST,produces = MediaType.APPLICATION_JSON_VALUE)
+	public ResponseEntity<User> update(@RequestBody User user) {
+	System.out.println("update");
+	User dealerRegLoginObj = userService.update(user);
+	return new ResponseEntity<User>(dealerRegLoginObj,HttpStatus.OK);
+}
+
 }

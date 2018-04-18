@@ -54,36 +54,10 @@ System.out.println(""+insertDealerReg_query);
 	@Override
 	public List<Msg> getmsg(Msg msg) {
 		// TODO Auto-generated method stub
-/*	System.out.println("from"+msg.getFrom());
-			Msg bank = new Msg();
-		List<Msg> bankModelObjArray = new ArrayList<Msg>(); 
-		
-		String pendingQuery = "SELECT * FROM message WHERE user_to_name='"+msg.getFrom()+"'";
-		System.out.println("query"+pendingQuery);
-		
-		bankModelObjArray = getJdbcTemplate().query(pendingQuery, new BeanPropertyRowMapper(Msg.class)); 
-		if (bankModelObjArray.size() > 0) {
-			
-			bank.setMsg_id(bankModelObjArray.get(0).getMsg_id());
-			bank.setDate(bankModelObjArray.get(0).getDate());
-			bank.setMsg(bankModelObjArray.get(0).getMsg());
-			bank.setUser_from(bankModelObjArray.get(0).getUser_from());
-			
-						} 
-		
-		else { 
-				System.out.println("pass");
-				bank.setStatus(false);
-				}
-		bankModelObjArray.add(bank);
-		return bankModelObjArray;*/
-		
-		
-		
 		
 		Msg custVehiDetailsOutObj = new Msg();
         List<Msg> custDetailsList = new ArrayList<Msg>();
-		String pendingQuery = "SELECT * FROM message WHERE user_to_name='"+msg.getFrom()+"'";
+		String pendingQuery = "SELECT * FROM message WHERE user_to_name='"+msg.getFrom()+"' ORDER BY date DESC";
 		System.out.println("pendingQuery------------------------------------->"+pendingQuery);
 		try {
 			

@@ -1,7 +1,7 @@
 /**
  * 
  */
-app.controller('MsgController',function($scope,MsgService,$location,$routeParams)
+app.controller('MsgController',function($scope,MsgService,$location,$routeParams,$rootScope)
 		{
 	var sno=$routeParams.sno
 	
@@ -45,7 +45,8 @@ MsgService.friend(sno).then(function(response){
 			console.log(response.status)
 			 
 			$scope.msg1 = response.data
-			console.log("list"+$scope.msg1.msg)
+			$rootScope.noOfmsg=$scope.msg1.length
+			console.log("list"+$rootScope.noOfmsg)
 		}, function(response) {
 			console.log(response.status)
 			if(response.status==401){

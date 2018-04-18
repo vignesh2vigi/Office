@@ -127,23 +127,29 @@ input[type="submit"]:hover {
     transform: translateX(10px);
   }
 }
+
 </style>
 
 <div class='login'>
   <h2>Register</h2>
-  <form>
+  <form name="theForm">
  <label>Userame</label>
-  <input type="text"  ng-model="user.name">
+  <input type="text"  ng-model="user.name" name="username"  required>
+  <span class="error" ng-show="(theForm.$dirty||submitted) && theForm.username.$error.required">Username is required</span>
+  <span class="text-danger" style='color:red' ng-if="error.code==1">{{error.message}}</span>
  <label>Password</label>
-    <input type="password"  ng-model="user.password" >
+    <input type="password"  ng-model="user.password" name="password" required>
+    <span class="error" ng-show="(theForm.$dirty||submitted) && theForm.password.$error.required">Password is required</span>
   <label>Email</label>
-  <input type="text"  ng-model="user.email" >
+  <input type="text"  ng-model="user.email" name="email" required>
+  <span class="error" ng-show="(theForm.$dirty||submitted) && theForm.email.$error.required">Email is required</span>
   <label>Mobile</label>
-  <input type="text"  ng-model="user.mobile">
+  <input type="text"  ng-model="user.mobile" name="mobile" required>
+  <span class="error" ng-show="(theForm.$dirty||submitted) && theForm.mobile.$error.required">Mobile is required</span>
   
   <br/>
   <br>
-  <button type="button"  class="btn btn-success" ng-click="register()">submit</button>
+  <button type="submit"  class="btn btn-success" ng-click="register()">submit</button>
  <br>
  <br>
   </form>

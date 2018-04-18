@@ -23,5 +23,9 @@ app.factory('UserService',function($http){
 		return	$http.get(BASE_URL + "/servlet/userlist")
 	}
 	
+	userService.update=function(user){
+		return	$http.post(BASE_URL + "/servlet/update",user)
+	}
+	
 	return userService;
 })

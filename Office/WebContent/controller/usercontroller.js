@@ -1,7 +1,7 @@
-app.controller('UserController',function($scope,UserService,$location,$rootScope,$cookieStore)
+app.controller('UserController',function($scope,UserService,$location,$rootScope,$cookieStore,MsgService)
 		{
 	$scope.register=function(){
-		console.log("USER DATA IS"+$scope.user.password)
+		/*console.log("USER DATA IS"+$scope.user.password)*/
 		UserService.register($scope.user).then(function(response){
 			console.log(response.data)
 			console.log(response.status)
@@ -10,13 +10,9 @@ app.controller('UserController',function($scope,UserService,$location,$rootScope
 		},function(response){
 			console.log(response.data)
 			console.log(response.status)
-			/*$scope.error.response.data
-			if($scope.error.code==1)
-				$scope.exception=response.data
-				if($scope.error.code==2)
-					$scope.duplicateUser=response.data
-					if($scope.error.code==3)
-						$scope.duplicateEmail=response.data*/
+			$scope.error=response.data
+			
+				
 			$location.path('/register')
 		}
 		)	}
@@ -48,12 +44,24 @@ app.controller('UserController',function($scope,UserService,$location,$rootScope
 		
 		}, function(response) {
 			console.log(response.status)
-			if(response.status==401){
-				console.log("login must")
-				
-			}
+			console.log(response.data)
 		})
 	}
+	
+	$scope.update=function(){
+		console.log("USER DATA IS"+$scope.user.password)
+		UserService.update($scope.user).then(function(response){
+			console.log(response.data)
+			console.log(response.status)
+			$location.path('/home')
+			
+		},function(response){
+			console.log(response.data)
+			console.log(response.status)
+		
+			$location.path('/register')
+		}
+		)	}
 	
 	if($rootScope.currentUser!=undefined){
 		UserService.details().then(function(response){
@@ -69,6 +77,21 @@ app.controller('UserController',function($scope,UserService,$location,$rootScope
 				
 			})
 		}
+	
+	MsgService.getmessage().then(function(response) {
+		console.log(response.data)
+		console.log(response.status)
+		 
+		$scope.msg1 = response.data
+		$rootScope.noOfmsg=$scope.msg1.length
+		console.log("list"+$rootScope.noOfmsg)
+	}, function(response) {
+		console.log(response.status)
+		if(response.status==401){
+    	
+			$location.path('/login')
+		}
+	})
 	
 	userlist()
 		})

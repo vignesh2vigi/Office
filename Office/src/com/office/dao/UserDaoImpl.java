@@ -244,5 +244,38 @@ System.out.println("Image Insert=========="+insertDealerReg_query);
 		return bank;
 	}
 
+	@Override
+	public User update(User user) {
+		// TODO Auto-generated method stub
+		User dealerRegLoginOutObj = new User();
+		try {
+			
+			int insertDealerReg_int = 0;
+			String insertDealerReg_query = "UPDATE register SET password = ?,mobile=?,email=? WHERE name = '"+user.getName()+"'";
+
+			insertDealerReg_int = this.jdbcTemplate.update(
+					insertDealerReg_query,
+					new Object[] { 
+							
+							user.getPassword(),
+							user.getMobile(),
+							user.getEmail()
+				
+							});
+			if (insertDealerReg_int > 0) {
+				dealerRegLoginOutObj.setStatus(true);
+				dealerRegLoginOutObj.setMessage("update Successfully...!");
+			} else {
+				dealerRegLoginOutObj.setStatus(false);
+				dealerRegLoginOutObj.setMessage("update UnSuccessful...!");
+			}
+		} catch (DataAccessException e) {
+			System.out.println(e.getLocalizedMessage());
+			
+		}
+
+		return dealerRegLoginOutObj;
+	}
+
 	
 }

@@ -14,5 +14,5 @@ public interface UserService {
 	   public User details(String name);
 	   public List<User>user();
 	   public User friend(int sno);
-	   
+	   public User update(User user);
 }
